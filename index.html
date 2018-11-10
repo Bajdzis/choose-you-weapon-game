@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CHOOSE YOU WEAPON - game</title>
+
+    <template id="boardLines">
+        <svg class="boardLines" width="708" height="708" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <line class="boardLines__line boardLines__line--bg" x1="235" x2="235" y1="8" y2="700" stroke-width="12" stroke-linecap="round" ></line>
+            <line class="boardLines__line boardLines__line--bg" x1="474" x2="474" y1="8" y2="700" stroke-width="12" stroke-linecap="round"></line>
+            <line class="boardLines__line boardLines__line--bg" x1="8" x2="700" y1="470" y2="470" stroke-width="12" stroke-linecap="round"></line>
+            <line class="boardLines__line boardLines__line--bg" x1="8" x2="700" y1="235" y2="235" stroke-width="12" stroke-linecap="round"></line>
+            <line class="boardLines__line" x1="235" x2="235" y1="8" y2="700" stroke-width="6" stroke-linecap="round" ></line>
+            <line class="boardLines__line" x1="474" x2="474" y1="8" y2="700" stroke-width="6" stroke-linecap="round"></line>
+            <line class="boardLines__line" x1="8" x2="700" y1="470" y2="470" stroke-width="6" stroke-linecap="round"></line>
+            <line class="boardLines__line" x1="8" x2="700" y1="235" y2="235" stroke-width="6" stroke-linecap="round"></line>
+        </svg>
+    </template>
+
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css">
+    <link href="./style.css" rel="stylesheet">
+
+    <script defer src="classes/Field.js"></script>
+    <script defer src="classes/Board.js"></script>
+    <script defer src="classes/BigBoard.js"></script>
+    <script defer src="classes/Player.js"></script>
+    <script defer src="classes/Resources.js"></script>
+    <script defer src="classes/Timer.js"></script>
+    <script defer src="classes/Game.js"></script>
+    <script defer src="checkResult.js"></script>
+    <script defer src="main.js"></script>
+
+</head>
+
+<body class="game">
+
+    <div class="audio">
+        <button class="audio__button">
+            <i class="mdi mdi-volume-high"></i>
+        </button>
+        <audio id="backgroundAudio" src="./sounds/bensound-adventure.mp3" loop></audio>
+    </div>
+
+    <button class="players">
+        Players : <span class="players__value">2</span>
+    </button>
+
+    <div class="startScreen">
+
+        <div class="startScreen__step1">
+            <h1 class="startScreen__title">CHOOSE YOU WEAPON !</h1>
+            <div class="startScreen__items">
+                <button class="button button--fire" data-weapon="0">
+                    <i class="mdi mdi-fire button__weapon"></i>
+                </button>
+                <button class="button button--water" data-weapon="1">
+                    <i class="mdi mdi-water button__weapon"></i>
+                </button>
+                <button class="button button--electricity" data-weapon="2">
+                    <i class="mdi mdi-flash button__weapon"></i>
+                </button>
+                <button class="button button--tree" data-weapon="3">
+                    <i class="mdi mdi-tree button__weapon"></i>
+                </button>
+            </div>
+            <div class="startScreen__title startScreen__title--player">First Player</div>
+        </div>
+
+        <div class="startScreen__step2">
+            <h1 class="startScreen__title">ARE YOU FAST ?</h1>
+            <div class="timeButtons">
+                <button class="button button--fire button--normal" data-time="2">
+                    <span class="button__weapon button__weapon--autoWidth">
+                        <i class="mdi mdi-clock-fast"></i> 2s for move
+                    </span>
+                </button>
+                <button class="button button--electricity button--normal" data-time="4">
+                    <span class="button__weapon button__weapon--autoWidth">
+                        <i class="mdi mdi-clock-outline"></i> 4s for move
+                    </span>
+                </button>
+                <button class="button button--tree button--normal" data-time="60">
+                    <span class="button__weapon button__weapon--autoWidth">
+                        <i class="mdi mdi-infinity"></i> Infinite
+                    </span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="timer"></div>
+
+    <div class="gameContainer"></div>
+
+    <footer class="footer">
+        <span>
+            Author: <a href="https://github.com/Bajdzis" target="_blank"><i class="mdi mdi-github-circle"></i> Bajdzis</a>
+        </span>
+        <span style="float:right">
+            <i class="mdi mdi-music-note"></i>
+            <a href="https://www.bensound.com/royalty-free-music/track/adventure" target="_blank">bensound.com</a>
+            and <a href="https://freesound.org/" target="_blank">freesound.org </a>
+        </span>
+    </footer>
+
+</body>
+
+</html>

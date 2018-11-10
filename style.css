@@ -1,0 +1,316 @@
+:root {
+    --main-font-color: #115f80;
+	--main-bg-color: #3f7cb6;
+	--game-bg: #6394c3;
+	--transition--bg: background 0.8s, stroke 0.8s;
+	--weapon-fire-light: #fa8132;
+	--weapon-fire: #e86a16;
+	--weapon-fire-dark: #cd5d11;
+	--weapon-water-light: #35b9f3;
+	--weapon-water: #1ea7e1;
+	--weapon-water-dark: #1989b8;
+	--weapon-electricity-light: #e5ec9b;
+	--weapon-electricity: #ffd948;
+	--weapon-electricity-dark: #cda400;
+	--weapon-tree-light: #88e05f;
+	--weapon-tree: #73cd4a;
+	--weapon-tree-dark: #5fb13a;
+	--weapon-empty-light: #fff;
+	--weapon-empty: #ebebeb;
+	--weapon-empty-dark: #bcbcbc;
+}
+
+* {
+	font-family: 'Mali', cursive;
+	color: inherit;
+}
+
+.gameContainer {
+	display: none;
+}
+
+.game {
+	background: var(--game-bg);
+	color: #fff;
+}
+
+.game--fireRound {
+	--player-color: var(--weapon-fire);
+	--player-color-light: var(--weapon-fire-light);
+	--player-color-dark: var(--weapon-fire-dark);
+}
+
+.game--waterRound {
+	--player-color: var(--weapon-water);
+	--player-color-light: var(--weapon-water-light);
+	--player-color-dark: var(--weapon-water-dark);
+}
+
+.game--electricityRound {
+	--player-color: var(--weapon-electricity);
+	--player-color-light: var(--weapon-electricity-light);
+	--player-color-dark: var(--weapon-electricity-dark);
+}
+
+.game--treeRound {
+	--player-color: var(--weapon-tree);
+	--player-color-light: var(--weapon-tree-light);
+	--player-color-dark: var(--weapon-tree-dark);
+}
+
+.startScreen__step2 {
+	display: none;
+}
+
+.startScreen__title {
+	font-size: 52px;
+	text-align: center;
+	margin: 70px;
+}
+
+.startScreen__items {
+	display: flex;
+	width: 504px;
+	flex-wrap: wrap;
+	margin: 60px auto;
+}
+
+.button {
+	--weapon-color: var(--weapon-empty-dark);
+	--weapon-background: var(--weapon-empty-light);
+	position: relative;
+	top: -0.065em;
+	border: 0;
+	background: var(--weapon-color);
+	border: 0.065em solid var(--weapon-background);
+	border-radius: 2em;
+	margin: 16px;
+	padding: 0;
+	display: block;
+	box-shadow: 0px 0.065em 0px 0px var(--weapon-color);
+	outline: 0;
+	font-size: 96px;
+}
+
+.button--small {
+	font-size: 24px;
+	margin: 8px;
+}
+
+.button--normal {
+	font-size: 48px;
+	margin: 8px;
+}
+
+.button--medium {
+	font-size: 90px;
+	margin: 0;
+}
+
+.button:hover {
+	top: -0.03em;
+	box-shadow: 0px 0.03em 0px 0px var(--weapon-color);
+}
+
+.button:active,
+.button--active {
+	top: 0px;
+	box-shadow: 0px 0px 0px 0px var(--weapon-color);
+}
+
+.button--disabled {
+	filter: grayscale(100%);
+	pointer-events: none;
+}
+
+.button--fire {
+	--weapon-color: var(--weapon-fire-dark);
+	--weapon-background: var(--weapon-fire-light);
+}
+
+.button--water {
+	--weapon-color: var(--weapon-water-dark);
+	--weapon-background: var(--weapon-water-light);
+}
+
+.button--electricity {
+	--weapon-color: var(--weapon-electricity-dark);
+	--weapon-background: var(--weapon-electricity-light);
+}
+
+.button--tree {
+	--weapon-color: var(--weapon-tree-dark);
+	--weapon-background: var(--weapon-tree-light);
+}
+
+.button__weapon {
+	display: block;
+	cursor: pointer;
+	width: 2em;
+	min-width: 2em;
+	height: 2em;
+	line-height: 2em;
+	border-radius: 2em;
+	color: var(--weapon-color);
+	border: 0.065em solid var(--weapon-color);
+	background: var(--weapon-background);
+}
+
+.button__weapon--autoWidth {
+	width: auto;
+	padding: 0 16px;
+	box-sizing: border-box;
+}
+
+.gameContainer {
+	position: relative;
+	min-width: 706px;
+}
+
+.boardBig {
+	width: 510px;
+	height: 510px;
+	margin: 0px auto;
+	background: transparent;
+	border-collapse: collapse;
+	border-style: hidden;
+}
+
+.boardBig__container td {
+	border: 6px solid transparent;
+}
+
+.board--resolve {
+	pointer-events: none;
+}
+
+.board {
+	width: 206px;
+	height: 206px;
+	margin: 12px;
+}
+
+.board__container {
+	margin: -2px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.board__field {
+	width: 70px;
+	height: 70px;
+	background: var(--game-bg);
+	transition: var(--transition--bg);
+}
+
+.audio {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+.audio__button {
+	background: transparent;
+	font-size: 32px;
+	color: var(--main-font-color);
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+}
+
+.players {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	background: transparent;
+	font-size: 32px;
+	color: var(--main-font-color);
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+}
+
+.players--disabled {
+	text-decoration: line-through solid var(--main-font-color);
+	pointer-events: none;
+}
+
+.boardLines {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -354px;
+	pointer-events: none;
+}
+
+.boardLines__line {
+    transition: var(--transition--bg);
+	stroke: var(--player-color);
+}
+
+.boardLines__line--bg {
+    transition: var(--transition--bg);
+	stroke: var(--player-color-dark);
+}
+
+.timer {
+	display: flex;
+	justify-content: center;
+	margin: 30px 0;
+}
+
+.timer__time {
+	width: 0px;
+	display: inline-block;
+	opacity: 0;
+	transition: width 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.timer__time--active {
+	width: 120px;
+	opacity: 1;
+}
+
+.timeButtons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 520px;
+	height: 440px;
+	margin: 0 auto;
+}
+
+.winnerScreen {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: var(--game-bg);
+	font-size: 96px;
+}
+
+.winnerScreen__title {
+	margin: 80px 0 80px 110px;
+}
+
+.winnerScreen__weapon {
+	margin: 80px 140px 80px 0;
+	text-align: right;
+}
+
+.winnerScreen__button {
+	display: flex;
+	justify-content: center;
+}
+
+.footer {
+	color: var(--main-font-color);
+	font-size: 18px;
+	margin: 16px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: calc(100% - 32px);
+}
